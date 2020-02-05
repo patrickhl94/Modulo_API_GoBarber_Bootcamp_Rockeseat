@@ -3,7 +3,7 @@
 ### Utilizar a sintaxe "import export" no Node.js =>
 Para utilizar esta sintaxe, é necessário instalar a dependencia "sucrase",
 após instalado será possível utilizar a nova sintaxe.
-* Comando para rodar o servidor sem o nodemon: `yarn sucrase-node server.js`
+* Comando para rodar o servidor sem o nodemon: ```yarn sucrase-node server.js```
 
 * **Para rodar o servidor com o nodemon:** Criar um arquivo `nodemon.json` na raiz do projeto
 e neste arquivo deverá ter o seguinte json: {"execMap" : {"js" : "node -r sucrase/register"}}

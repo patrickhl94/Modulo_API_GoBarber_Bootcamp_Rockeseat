@@ -1,6 +1,6 @@
 # Anotações Modulo 02
 
-### * Utilizar a sintaxe "import export" no Node.js
+## Utilizar a sintaxe "import export" no Node.js
 Para utilizar esta sintaxe, é necessário instalar a dependencia "sucrase",
 após instalado será possível utilizar a nova sintaxe.
 * Comando para rodar o servidor sem o nodemon: ```yarn sucrase-node server.js```
@@ -18,7 +18,7 @@ e neste arquivo deverá ter o seguinte json:
 **Basicamente este json informa a aplicação que antes dele executar o script que termine**
 **com 'js' ele irá executar o arquivo refgister que está na pasta /sucrase**
 
-## * Configuração para debugar com o sucrase  
+## Configuração para debugar com o sucrase  
 Para debugar com o sucrase, é necessário algumas configurações:
 
 * **Criar o launch.json da pasta .vscode, para abrir esta pasta, basta abrir o menu debug,**

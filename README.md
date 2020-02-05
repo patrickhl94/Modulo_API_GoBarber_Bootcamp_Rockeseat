@@ -30,3 +30,19 @@ Para debugar com o sucrase, é necessário algumas configurações:
 
 * **Para o debug reniciar automatimante após um debug basta inserir a propriedade `"restart": true`**
 **no launch.json de configuração debug**
+
+**Resultado final do launch.json:**
+```
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Executar Programa",
+      "protocol": "inspector",
+      "restart": true
+    }
+  ]
+}
+```

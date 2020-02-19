@@ -24,7 +24,7 @@ class AppointmentController {
     if (!isProvider) {
       return res
         .status(401)
-        .json({ error: 'You can only create appointment whith providers' });
+        .json({ error: 'You can only create appointment whith providers.' });
     }
 
     const appointment = await Appointment.create({

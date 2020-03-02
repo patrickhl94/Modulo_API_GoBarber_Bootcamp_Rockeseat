@@ -19,6 +19,7 @@ routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
 
+routes.get('/appointments', AppointmentsController.index);
 routes.post('/appointments', AppointmentsController.store);
 
 routes.get('/providers', ProviderController.index);

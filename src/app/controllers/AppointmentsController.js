@@ -1,8 +1,10 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointments';
+import Notification from '../schemas/Notification';
 
 class AppointmentController {
   async index(req, res) {
@@ -58,6 +60,16 @@ class AppointmentController {
     }
 
     /**
+     * Check if the provider and the user are different
+     */
+
+    if (provider_id === req.userId) {
+      return res
+        .status(400)
+        .json({ erro: 'User must be diferent from the provider' });
+    }
+
+    /**
      * Check for past dates
      */
     const hourStart = startOfHour(parseISO(date));
@@ -88,6 +100,18 @@ class AppointmentController {
       users_id: req.userId,
       provider_id,
       date: hourStart,
+    });
+
+    /**
+     * Notify appointment provider
+     */
+    const user = await User.findByPk(req.userId);
+    const formatedDate = format(hourStart, "'dia' dd 'de' MMMM', às' H:mm'h'", {
+      locale: pt,
+    });
+    await Notification.create({
+      content: `Novo agendamento de ${user.name} para ${formatedDate}`,
+      user: provider_id,
     });
 
     return res.json(appointment);

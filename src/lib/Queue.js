@@ -35,6 +35,7 @@ class Queue {
   }
 
   handleFailure(job, erro) {
+    // eslint-disable-next-line no-console
     console.log(`Queue ${job.queue.name}: FAILED`, erro);
   }
 }

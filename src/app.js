@@ -38,8 +38,9 @@ class App {
     this.server.use(Sentry.Handlers.errorHandler());
   }
 
+  // middleware de tratamento de exceções.
   exceptionHandler() {
-    // middleware de tratamento de exceções.
+    // eslint-disable-next-line no-unused-vars
     this.server.use(async (err, req, res, next) => {
       const errors = await new Youch(err, req).toJSON();
       return res.status(500).json(errors);

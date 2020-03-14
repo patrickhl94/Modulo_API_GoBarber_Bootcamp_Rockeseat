@@ -30,6 +30,7 @@ class AvailableController {
       },
     });
 
+    // Horarios de atendimento
     const schedule = [
       '08:00',
       '09:00',
